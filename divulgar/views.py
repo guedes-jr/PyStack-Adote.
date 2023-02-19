@@ -41,11 +41,11 @@ def novo_pet(request):
       pet.save()
       for tag_id in tags:
          tag = Tag.objects.get(id=tag_id)
-         pet.tag.add(tag)
+         pet.tags.add(tag)
 
       pet.save()
 
-      return redirect('/divulgar/seus_pets')
+      return redirect('/adotar/')
 
 @login_required
 def seus_pets(request):
@@ -56,7 +56,7 @@ def seus_pets(request):
 @login_required
 def remover_pet(request, id):
    pet = Pet.objects.get(id=id)
-   if not pet.usuario == request.usuario:
+   if not pet.usuario == request.user:
       messages.add_message(request, constants.ERROR, 'Esse pet não é seu!')
       return redirect('/divulgar/seus_pets')
       

@@ -10,6 +10,8 @@
     <link href="{% static 'divulgar/css/novo_pet.css' %}" rel="stylesheet">
     <link href="{% static 'divulgar/css/seus_pet.css' %}" rel="stylesheet">
     <link href="{% static 'adotar/css/listar_pets.css' %}" rel="stylesheet">
+    <link href="{% static 'global/css/global_style.css' %}" rel="stylesheet">
+
     </head>
     <body>
 
@@ -18,10 +20,16 @@
                 <div class="col-md-2 bg-side-plataforma sidebar">
                     <h2>ADO.TE</h2>
                     <hr>
-                  
-                    
+                    <ul class="left-sidebar">
+                        <li><a href="{% url 'dashboard' %}">Home</a></li>
+                        <li><a href="{% url 'listar_pets' %}">Adotar</a></li>
+                        <li><a href="{% url 'novo_pet' %}">Cadastrar</a></li>
+                        <li><a href="{% url 'seus_pets' %}">Seus Pets</a></li>
+                        <li><a href="{% url 'sair' %}">Sair</a></li>
+                    </ul>
                 </div>
-
+                  
+                
                 <div style="padding:60px" class="col-md">
                     <div class="row">
                         {% if messages %}
